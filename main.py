@@ -11,7 +11,9 @@ with open('AustraliaCSV.csv') as file:
     lines = list(reader)
 
 stateNames = stateNames[1:] #We have the state names
-
+vertices = 0 #Number of vertices
+for i in stateNames:
+    vertices += 1
 
 #Fill Empty states
 for state in stateNames:
@@ -19,14 +21,11 @@ for state in stateNames:
 
 def check(color, state):
     checkingCol = ""
-    for i in range(1,8):
+    for i in range(1,vertices+1):
         if lines[state][i] == str(1):
                 checkingCol = result[stateNames[i-1]]
-
                 if color == checkingCol:
                     return False
-                else:
-                    return True
     return True
 
 def color(state):
