@@ -34,10 +34,14 @@ def color(state):
             return col
 def main():
     x = 0
+    currentState = stateNames[0]
     for state in stateNames:
             result[state] = color(x)
             x += 1
-    print(result)
+    with open('output.txt','w',encoding="utf-8") as w:
+        w.write(currentState + ":" + str(result[currentState] + "->")),
+        del result[currentState];
+        w.write(str(result))
 
 if __name__ == '__main__':
    main()
